@@ -45,7 +45,7 @@ Laura_Markers <- list(Chol=c("NDRG1", "DAPK1", "CA9"), Hep=c("AFM", "CYP27A1"), 
 
 
 # Read in each manual clustering
-clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC3.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
+clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC32.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
 rds_names <- c("CCA1", "CCA5", "HCC6", "HCC23", "HCC10", "HCC24", "D3DM", "D3EM", "D9DM", "D9EM")
 expr_type <- "norm_exprs";
 expr_mats <- list()
@@ -78,7 +78,8 @@ line_specific_groups <- list(CCA1=c("Prog", "Chol", "CSC", "Stress"),
 			    CCA5=c("Chol", "Stress", "CSC", "Unk", "Hep"),
 			    HCC6=c("Prog1", "Stress", "Prog2", "CSC"),
 			    HCC23=c("CSC", "Clot-Hep", "Prog"),
-			    HCC10=c("Prog1", "Hep", "CSC", "iHep", "Stress", "Prog2"),
+			    #HCC10=c("Prog1", "Hep", "CSC", "iHep", "Stress", "Prog2"),
+			    HCC10=c("CSC", "Prog", "Hep"),
 			    HCC24=c("Clot-Hep", "Prog1", "Prog2", "CSC", "Hep1", "Hep2"),
 			    D3DM=c("Chol", "Prog", "Stress", "Cycling"),
 			    D3EM=c("Stress", "Chol1", "Chol2", "Prog"),
@@ -489,7 +490,7 @@ add_anno <- function(marker_tab) {
 #	GeneID	GeneSymbol means, cell-type marker-ness, annotations, biotype
 # Cluster table:
 #	ClusterID ClusterName nCells, CCStage, nSigMarkers, most similar clusters, 
-clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC3.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
+clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC32.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
 rds_names <- c("CCA1", "CCA5", "HCC6", "HCC23", "HCC10", "HCC24", "D3DM", "D3EM", "D9DM", "D9EM")
 expr_type <- "norm_exprs";
 
@@ -578,7 +579,7 @@ require("gplots")
 require("scater")
 require("RColorBrewer")
 require("CellTypeProfiles")
-clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC3.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
+clustered_rds <- c("CCA1_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC23_manual_SC3.rds", "HCC10_manual_SC32.rds", "HCC24_manual_SC3.rds", "D3DM_manual_SC3.rds", "D3EM_manual_SC3.rds", "D9DM_manual_SC3.rds", "D9EM_manual_SC3.rds");
 lineIDs <- c("CCA1", "CCA5", "HCC6", "HCC23", "HCC10", "HCC24", "D3DM", "D3EM", "D9DM", "D9EM");
 for (i in 1:length(lineIDs)) {
 

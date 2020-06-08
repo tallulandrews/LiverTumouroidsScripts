@@ -36,15 +36,15 @@ library("scmap")
 RefSCE<-SingleCellExperiment(assays=list(logcounts=as.matrix(mat)), colData=data.frame(cell_type1=cell_type), rowData=data.frame(feature_symbol=sub(" ", "-", rownames(mat))))
 RefSCE <- RefSCE[,!RefSCE$cell_type1 %in% c("erythroblasts", "lymphoblasts", "hepatic", "Kupffer")]
 assays(RefSCE)[["counts"]] <- assays(RefSCE)[["logcounts"]]
-png("All_Liver_Ref_FS.png", width=5, height=5, units="in", res=300)
+#png("All_Liver_Ref_FS.png", width=5, height=5, units="in", res=300)
 RefSCE <- scmap::selectFeatures(RefSCE, suppress_plot=FALSE, n_features=1000)
-dev.off()
+#dev.off()
 RefSCE <- scmap::indexCluster(RefSCE)
 
 require("gplots")
-png("All_Liver_Ref_Profile.png", width=5, height=5, units="in", res=300)
+#png("All_Liver_Ref_Profile.png", width=5, height=5, units="in", res=300)
 heatmap.2(as.matrix(log2(metadata(RefSCE)$scmap_cluster_index+1)), trace="none")
-dev.off()
+#dev.off()
 
 # Read in each line and map them
 
@@ -101,10 +101,10 @@ leg_names[leg_names=="adult hepatocytes"] <- "a-hepato"
 leg_names[leg_names=="fetal hepatocytes"] <- "f-hepato"
 leg_names[leg_names=="endothelial"] <- "endoth"
 
-png(paste(names(clustered_rds)[i], "scmap_barplot_Alt_munich.png", sep="_"), width=4, height=4, units="in", res=300)
+#png(paste(names(clustered_rds)[i], "scmap_barplot_Alt_munich.png", sep="_"), width=4, height=4, units="in", res=300)
 par(mar=c(4,4,1,1))
 barplot(stuff, col=stuff_col)
-dev.off();
+#dev.off();
 if (!is.null(nrow(stuff))) {
 thingsums <- colSums(stuff)
 } else {
@@ -120,7 +120,7 @@ if (thingsums[1] > thingsums[ncol(stuff)]) {
 table(out$scmap_cluster_labs, this_SCE$Proliferating)
 table(out$scmap_cluster_labs, this_SCE$Manual_Clusters)
 
-png(paste(names(clustered_rds)[i], "scmap_scatter_Alt_munich.png", sep="_"), width=6, height=6, units="in", res=300)
+#png(paste(names(clustered_rds)[i], "scmap_scatter_Alt_munich.png", sep="_"), width=6, height=6, units="in", res=300)
 	par(mar=c(4,4,2,1))
 	xes <- plotting_stuff$cell_coords[[i]][keep_cells,1]
 	yes <- plotting_stuff$cell_coords[[i]][keep_cells,2]
@@ -129,13 +129,17 @@ png(paste(names(clustered_rds)[i], "scmap_scatter_Alt_munich.png", sep="_"), wid
 		bg=stuff_col[factor(out$scmap_cluster_labs, 
 		levels=names(stuff_col))], pch=21, cex=2)
 	#legend("topleft", leg_names, fill=stuff_col, bty="n")
-dev.off()	
+#dev.off()	
 
+out$scmap_cell_Cols <- stuff_col[factor(out$scmap_cluster_labs, levels=names(stuff_col))]
+names(out$scmap_cell_Cols) <- colnames(this_SCE)[keep_cells];
+saveRDS(out, paste(names(clustered_rds)[i], "scmap_output.rds", sep="_"))
 }
 
-png("scmap_Alt_munich_legend.png", width=3, height=4, units="in", res=300)
+
+#png("scmap_Alt_munich_legend.png", width=3, height=4, units="in", res=300)
 plot(1,1, xaxt="n", yaxt="n", col="white", xlab="", ylab="", main="", bty="none")
 legend("left", fill=stuff_col, leg_names)
-dev.off()
+#dev.off()
 
 
