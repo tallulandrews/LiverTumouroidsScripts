@@ -74,11 +74,13 @@ for (t in names(SCE_files)) {
 	}
 	groups <- factor(groups_char);
 
-	exclude <- !groups %in% c_names
+	exclude <- !(groups %in% c_names) | ! (colnames(sce) %in% colnames(profiled_call_mat))
 	groups <- factor(groups_char[!exclude])
 	up <- up[!exclude]
 	down <- down[!exclude]
 	sce <- sce[,!exclude]
+	profiled_call_mat <- profiled_call_mat[,match(colnames(sce), colnames(profiled_call_mat))]
+
 
 	require("CellTypeProfiles")
 	require("gplots")
@@ -88,8 +90,14 @@ for (t in names(SCE_files)) {
 	heatcol <-  c(rev(cold), "white", hot)
 
 	profiled <- my_row_mean_aggregate(profiled_call_mat, groups)
+	profiled_var <- my_row_var_aggregate(profiled_call_mat, groups)
+	sqrt_n <- as.vector(sqrt(table(groups)))
+	profiled_se <- t(t(profiled_var)/sqrt_n)
+	mt_confidence_95 <- qnorm(1-0.025/nrow(profiled))
+	profiled_up <- profiled + t(t(profiled_se)*mt_confidence_95)
+	profiled_dw <- profiled - t(t(profiled_se)*mt_confidence_95)
 	rownames(profiled) <- profiled_genes[match(rownames(profiled), profiled_genes$ensg),1]
-	write.table(profiled, paste(t, call_type, "profiled_genes.txt", sep="_"), row.names=T, col.names=T)
+	write.table(cbind(profiled, profiled_up, profiled_dw), paste(t, call_type, "profiled_genes.txt", sep="_"), row.names=T, col.names=T)
 	# Heatmap
 	pdf(paste(t, call_type, "profiled_genes_heatmap.pdf", sep="_"), width=8, height=8)
 	par(mar=c(8, 8, 3, 1))
