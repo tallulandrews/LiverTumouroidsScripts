@@ -4,7 +4,7 @@ G <- readRDS("/lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Analysis_Pipe
 
 
 ### Plot variants by XXXX ###
-All_Calls <- readRDS("inferCNV_allcall_CtrlNullBon.rds")
+All_Calls <- readRDS("/lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Analysis_Pipeline_Output/CNVAnalysis/inferCNV_allcall_CtrlNullBon.rds")
 call_type <- "CtrlNullBon";
 
 gene_order <- read.table("/lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Analysis_Pipeline_Output/CNVAnalysis/inferCNV_input_geneorder.txt", header=F)
@@ -12,18 +12,36 @@ gene_order <- read.table("/lustre/scratch117/cellgen/team218/TA/LiverOrganoids/A
 sex_genes <- gene_order[gene_order[,2] %in% c("chrX", "chrY"),1]
 
 dir <- "/lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Analysis_Pipeline_Output"
-SCE_files <- c("CCA1_manual_SC3.rds", "HCC24_manual_SC3.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC10_manual_SC3.rds", "HCC23_manual_SC3.rds")
+SCE_files <- c("CCA1_manual_SC3.rds", "HCC24_manual_SC32.rds", "CCA5_manual_SC3.rds", "HCC6_manual_SC3.rds", "HCC10_manual_SC32.rds", "HCC23_manual_SC3.rds")
 plot_objs <- c("CCA1_PlottingObj_Alt.rds", "HCC24_PlottingObj_Alt.rds", "CCA5_PlottingObj_Alt.rds", "HCC6_PlottingObj_Alt.rds", "HCC10_PlottingObj_Alt.rds", "HCC23_PlottingObj_Alt.rds")
 
 names(SCE_files) <- c("CCA1", "HCC24", "CCA5", "HCC6", "HCC10", "HCC23")
 names(plot_objs) <- c("CCA1", "HCC24", "CCA5", "HCC6", "HCC10", "HCC23")
 source("~/Collaborations/LiverOrganoids/Laura_Pipeline/0_ColourScheme.R")
 
+# Rename clusters
+
+line_specific_groups <- list(CCA1=c("Progenitor", "Differentiated1", "TICs", "Differentiated2"),
+                            CCA5=c("Chol", "Stress", "CSC", "Unk", "Hep"),
+                            HCC6=c("Prog1", "Stress", "Prog2", "CSC"),
+                            HCC23=c("CSC", "Clot-Hep", "Prog"),
+                            #HCC10=c("Prog1", "Hep", "CSC", "iHep", "Stress", "Prog2"),
+                            HCC10=c("TICs", "Progenitor", "Differentiated"),
+                            #HCC24=c("Clot-Hep", "Prog1", "Prog2", "CSC", "Hep1", "Hep2"),
+			    HCC24=c("Differentiated", "Progenitor1", "Progenitor2", "TICs"),
+                            D3DM=c("Chol", "Prog", "Stress", "Cycling"),
+                            D3EM=c("Stress", "Chol1", "Chol2", "Prog"),
+                            D9DM=c("Prog1", "Prog2", "Prog3", "Clot-Hep", "Chol1", "Chol2"),
+                            D9EM=c("Chol1", "Cycling", "Chol2")
+                        ) # cluster names
+
+
 
 del_col="cornflowerblue"
 dup_col="brown1"
 
 for (t in names(SCE_files)) {
+	print(t)
 	call_mat <- All_Calls[[t]]
 	call_mat <- call_mat[!rownames(call_mat) %in% as.character(sex_genes),]
 	up <- colSums(call_mat > 0);
@@ -34,9 +52,14 @@ for (t in names(SCE_files)) {
 	sce <- readRDS(paste(dir, SCE_files[names(SCE_files) == t], sep="/"))
 	groups <- sce$Manual_Clusters
 	plot_ob <- readRDS(paste(dir, plot_objs[names(plot_objs) == t], sep="/"))
-	c_names <- plot_ob@metadata$C_names
-	names(c_names) <- names(plot_ob@metadata$C_keep)[plot_ob@metadata$C_keep]
-	c_names[c_names=="Hypoxic"] <- "Stress"
+
+	sce@metadata$C_names <- line_specific_groups[[t]]
+        c_names <- sce@metadata$C_names	
+	names(c_names) <- 1:length(c_names)
+
+	#c_names <- plot_ob@metadata$C_names
+	#names(c_names) <- names(plot_ob@metadata$C_keep)[plot_ob@metadata$C_keep]
+	#c_names[c_names=="Hypoxic"] <- "Stress"
 	
 	groups_char <- as.character(groups);
 	for (i in 1:length(c_names)) {
@@ -45,7 +68,13 @@ for (t in names(SCE_files)) {
 	}
 	groups <- factor(groups_char);
 
-	png(paste(t, call_type, "CNV_by_celltype_relab.png", sep="_"), width=9, height=6, units="in", res=300)
+	exclude <- !groups %in% c_names
+	groups <- factor(groups_char[!exclude])
+	up <- up[!exclude]
+	down <- down[!exclude]
+	sce <- sce[,!exclude]
+
+	pdf(paste(t, call_type, "CNV_by_celltype_relab_6Aug2020.pdf", sep="_"), width=9, height=6)
 	par(mfrow=c(1,2))
 	tot <- data.frame(nCNV=c(up, down),
 			 dir=c(rep("up", length(up)), rep("down", length(down))), 
@@ -58,8 +87,8 @@ for (t in names(SCE_files)) {
 	loc_names <- rep(levels(factor(groups)), each=2)
 	loc_names[seq(from=1, to=length(loc_names), by=2)] <- "";
 
-	group_colours <- cluster_col(max(sce$Manual_Clusters))
-	box_stats <- boxplot(tot[,1]~tot[,2]+tot[,3], col=c(del_col, dup_col), notch=TRUE, at=loc, names=loc_names, xaxt="n", ylab="Total Variant Size", xlab="Cluster");
+	#group_colours <- cluster_col(max(sce$Manual_Clusters))
+	box_stats <- boxplot(tot[,1]~tot[,2]+tot[,3], col=c(del_col, dup_col), notch=TRUE, at=loc, names=loc_names, xaxt="n", ylab="Total Variant Size", xlab="Cluster", las=2);
 	axis(1, at=(loc[seq(from=1, to=length(loc), by=2)]+loc[seq(from=2, to=length(loc), by=2)])/2,
 		levels(factor(groups)))
 	legend("top", fill=c(del_col, dup_col), bty="n", c("Del", "Dup"), horiz=TRUE)
@@ -81,7 +110,7 @@ for (t in names(SCE_files)) {
 	title(main=t)
 	dev.off()
 
-	png(paste(t, call_type, "CNV_by_cellcycle_line_relab.png", sep="_"), width=6, height=6, units="in", res=300)
+	pdf(paste(t, call_type, "CNV_by_cellcycle_line_relab_6Aug2020.pdf", sep="_"), width=6, height=6)
 	# by proliferation - lines #
 	l_up <- aggregate(tot[tot[,2]=="up",1], by=list(tot[tot[,2]=="up",4]), mean)
 	l2_up <- aggregate(tot[tot[,2]=="up",1], by=list(tot[tot[,2]=="up",4]), sd)
@@ -99,6 +128,7 @@ for (t in names(SCE_files)) {
 	lines(1:3, l_down[,2]-2*l2_down[,2], lty=2, col=del_col)
 	lines(1:3, l_down[,2], type="both", col=del_col)
 	dev.off()
+	print("Done")
 
 }
 
@@ -128,7 +158,7 @@ for (t in names(All_Calls)) {
 
 	require("karyoploteR")
 	scale_fac <- max(stats[,3], stats[,4])
-	png(paste(t, "part1", call_type ,"karyo.png", sep="_"), width=10, height=3, units="in", res=300)
+	pdf(paste(t, "part1", call_type ,"karyo.pdf", sep="_"), width=10, height=3, units="in", res=300)
 	kp <- plotKaryotype(genome="hg19", plot.type=4, chromosomes=paste("chr", 1:10, sep=""))
         kpAxis(kp, ymin=0, ymax=scale_fac, r0=0, r1=1, side=1, data.panel=1)
         kpLines(kp, chr=stats$chr, x=stats$pos, y=stats$dup/scale_fac, col=dup_col, lwd=1.75)
@@ -137,7 +167,7 @@ for (t in names(All_Calls)) {
         kpLines(kp, chr=stats$chr, x=stats$pos, y=stats$del2/scale_fac, col=del_col, lwd=1.75, lty=2)
 	dev.off()
 
-	png(paste(t, "part2", call_type, "karyo.png", sep="_"), width=10, height=3, units="in", res=300)
+	pdf(paste(t, "part2", call_type, "karyo.pdf", sep="_"), width=10, height=3, units="in", res=300)
 	kp <- plotKaryotype(genome="hg19", plot.type=4, chromosomes=paste("chr", 11:22, sep=""))
         kpAxis(kp, ymin=0, ymax=scale_fac, r0=0, r1=1, side=1, data.panel=1)
         kpLines(kp, chr=stats$chr, x=stats$pos, y=stats$dup/scale_fac, col=dup_col, lwd=1.75)

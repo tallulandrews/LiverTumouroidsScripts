@@ -49,12 +49,12 @@ for (t in tumour) {
 		#std_err <- res_t[2,]
 
 		p.vals <- pnorm(abs(res_t[1,]-null_hypothesis)/std_err, lower.tail=FALSE)
-		sig <- p.vals < sig_threshold/ncol(res_t)
+		sig <- p.vals < sig_threshold
 		dir <- sign(res_t[1,]-null_hypothesis)
 		calls[i:(i+ngenes_window), sig & dir==1] <- 1
 		calls[i:(i+ngenes_window), sig & dir==-1] <- -1
 	}
 	All_Calls[[t]] <- calls;
 }
-saveRDS(All_Calls, "inferCNV_allcall_CtrlNullBon.rds")
+saveRDS(All_Calls, "inferCNV_allcall_CtrlNull.rds")
 

@@ -44,9 +44,8 @@ for (t in tumour) {
 		res_r<- apply(vals[i:(i+ngenes_window), ref_cells], 2, function(x) {c(mean(x), sd(x))})
 		res_r[2,res_r[2,] < min_var] <- min_var;
 
-		null_hypothesis <- mean(res_r[1,])
-		std_err <- max(res_t[2,], sd(res_r[1,]))
-		#std_err <- res_t[2,]
+		null_hypothesis <- 1
+		std_err <- res_t[2,]
 
 		p.vals <- pnorm(abs(res_t[1,]-null_hypothesis)/std_err, lower.tail=FALSE)
 		sig <- p.vals < sig_threshold/ncol(res_t)
@@ -56,5 +55,4 @@ for (t in tumour) {
 	}
 	All_Calls[[t]] <- calls;
 }
-saveRDS(All_Calls, "inferCNV_allcall_CtrlNullBon.rds")
-
+saveRDS(All_Calls, "inferCNV_allcall_SimpleNullBon.rds")
