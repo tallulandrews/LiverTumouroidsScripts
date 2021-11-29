@@ -1,0 +1,7 @@
+source("~/NetworkInferencePipeline/Dropouts/NatCommPaper/CompareFSMethods/Load_Devo.R")
+write.table(GOO$norm, "Goolam_norm.txt", row.names=T, col.names=T)
+write.table(DENG$norm, "Deng_norm.txt", row.names=T, col.names=T)
+write.table(XUE$norm, "Xue_norm.txt", row.names=T, col.names=T)
+write.table(FAN$norm, "Fan_norm.txt", row.names=T, col.names=T)
+write.table(BIASE$norm, "Biase_norm.txt", row.names=T, col.names=T)
+savehistory(file="Devo_matrices_for_dCor.R")
