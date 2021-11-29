@@ -1,0 +1,142 @@
+
+# rename files:
+# rename 's/\#/_/' *.cram
+# rename 's/\#/_/' *.imeta
+
+
+### Set-up Genome ###
+buildGenome.out :
+	bsub -R"select[mem>35000] rusage[mem=35000] span[hosts=1]" -M35000 -n4 -o $@ /nfs/users/nfs_t/ta6/RNASeqPipeline/software/STAR-2.5.3a/bin/Linux_x86_64_static/STAR --runThreadN 4 --runMode genomeGenerate --genomeDir /lustre/scratch117/cellgen/team218/TA/STRIPED_GENOMES/STAR_Human --genomeFastaFiles /lustre/scratch117/cellgen/team218/TA/genomebuilding/Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile /lustre/scratch117/cellgen/team218/TA/genomebuilding/Homo_sapiens.GRCh38.79.gtf --sjdbOverhang 95 --limitGenomeGenerateRAM 30000000000
+
+### Experiment 1 ###
+
+# CRAM -> Fastq + metadata
+21698_6_to_bam.out : 
+	bsub -J"21698_6_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 21698_6_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp1/Lane6 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+21698_7_to_bam.out : 
+	bsub -J"21698_7_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 21698_7_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp1/Lane7 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+21698_8_to_bam.out : 
+	bsub -J"21698_8_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 21698_8_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp1/Lane8 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+### Experiment 2 ###
+
+# CRAM -> Fastq + metadata
+# Donor3
+24906_6_to_bam.out : 
+	bsub -J"24906_6_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 24906_6_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24906Lane6 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	bsub -o 24906_6_to_bam.special.run -R"select[mem>500] rusage[mem=500]" -M500 /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24906Lane6 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS 0
+	echo "Done" > $@
+
+24906_7_to_bam.out : 
+	bsub -J"24906_7_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 24906_7_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24906Lane7 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+# Donor9
+25078_3_to_bam.out : 
+	bsub -J"25078_3_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 25078_3_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25078Lane3 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+25014_6_to_bam.out : 
+	bsub -J"25014_6_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 25014_6_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25014Lane6 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+# Second Trio
+25078_2_to_bam.out : 
+	bsub -J"25078_2_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 25078_2_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25078Lane2 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+24905_8_to_bam.out : 
+	bsub -J"24905_8_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 24905_8_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24905Lane8 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+25014_5_to_bam.out : 
+	bsub -J"25014_5_to_bam[1-384]%30" -R"select[mem>500] rusage[mem=500]" -M500 -o 25014_5_to_bam.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Flexible_Convert_Dir_CRAM_to_BAM.sh /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25014Lane5 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS
+	echo "Done" > $@
+
+# Annotation table
+Plate_design1.txt : /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Experiment1_PlateDesign.csv /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Process_PlateDesign.pl
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Process_PlateDesign.pl /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Experiment1_PlateDesign.csv > $@
+
+Plate_design2.txt : /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Experiment2_PlateDesign.csv /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Process_PlateDesign.pl
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Process_PlateDesign.pl /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Experiment2_PlateDesign.csv > $@
+
+cell_to_well1.txt : /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_headers.pl 21698_6_to_bam.out 21698_7_to_bam.out 21698_8_to_bam.out
+	/nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_Metadata_from_Bam.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS headers.txt
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_headers.pl headers.txt > $@
+	rm headers.txt
+
+cell_to_well2.txt : /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24906Lane6/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24906Lane7/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl  /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta > $@
+	rm /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta
+
+cell_to_well3.txt : /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25014Lane6/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25078Lane3/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl  /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta > $@
+	rm /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta
+
+cell_to_well4.txt : /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25078Lane2/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run25014Lane5/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	cp /warehouse/team218_wh01/tallulah/Meritxell_Gurdon/Laura/scRNASeqTumouroidsExp2/Run24905Lane8/*.imeta /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir
+	perl /nfs/users/nfs_t/ta6/RNASeqPipeline/0_Extract_PlateID_and_WellID_from_imeta.pl  /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta > $@
+	rm /lustre/scratch117/cellgen/team218/TA/TemporaryFileDir/*.imeta
+
+Annotation_table_Exp1.out : cell_to_well1.txt Plate_design1.txt
+	Rscript /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Pipeline/0_Combine_Anno.R cell_to_well1.txt Plate_design1.txt $@	
+
+Annotation_table_Exp2.out : cell_to_well2.txt Plate_design2.txt
+	Rscript /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Pipeline/0_Combine_Anno.R cell_to_well2.txt Plate_design2.txt $@
+
+Annotation_table_Exp2.2.out : cell_to_well3.txt Plate_design2.txt
+	Rscript /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Pipeline/0_Combine_Anno.R cell_to_well3.txt Plate_design2.txt $@
+
+Annotation_table_Exp2.3.out : cell_to_well4.txt Plate_design2.txt
+	Rscript /nfs/users/nfs_t/ta6/Collaborations/LiverOrganoids/Laura_Pipeline/0_Combine_Anno.R cell_to_well4.txt Plate_design2.txt $@
+
+
+## Quantification
+bam_to_fastq.out : 
+	MAXFILES=$$( ls /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS/*.bam | wc -l ); \
+	bsub -J"bam_to_fastq[1-$$MAXFILES]%30" -R"select[mem>5000] rusage[mem=5000]" -M5000 -o 24906_6_to_fastq.%J.%I.run /nfs/users/nfs_t/ta6/RNASeqPipeline/0_BAM2FastQ.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FastQs
+	echo "Done" > $@
+
+# Read QC
+#quality_24906_6.out : 24906_6_to_bam.out 
+#	bsub -R"select[mem>20000] rusage[mem=20000]" -M20000 -o $@ /nfs/users/nfs_t/ta6/RNASeqPipeline/0_FASTQC_Streaming.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FastQs/ 24906_6*.fastq.gz 24906_6 /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FASTQC
+
+quality_%.out : %_to_bam.out
+	bsub -R"select[mem>20000] rusage[mem=20000]" -M20000 -o $@ /nfs/users/nfs_t/ta6/RNASeqPipeline/0_FASTQC_Streaming.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FastQs/ $*_*.fastq.gz $* /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FASTQC
+
+# Appear to already be trimmed
+trim_fastq.out : 
+	echo "Done" > $@
+
+map_fastqs.out :
+	/nfs/users/nfs_t/ta6/RNASeqPipeline/2_DO_Flexible_MapReadsFile.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/FastQs /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/ReMappedBAMS /lustre/scratch117/cellgen/team218/TA/STRIPED_GENOMES/STAR_Human Remap
+	echo "Done" > $@
+	
+quantify_from_fastqs.out :
+	/nfs/users/nfs_t/ta6/RNASeqPipeline/5_Flexible_DO_featureCounts.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/ReMappedBAMS /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Counts /lustre/scratch117/cellgen/team218/TA/genomebuilding/Homo_sapiens.GRCh38.79.gtf
+	echo "Done" > $@
+
+quantify_from_bams.out:
+	/nfs/users/nfs_t/ta6/RNASeqPipeline/5_Flexible_DO_featureCounts.sh /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Counts /lustre/scratch117/cellgen/team218/TA/genomebuilding/Homo_sapiens.GRCh38.79.gtf
+	echo "Done" > $@
+
+cleanup.out :
+	rm /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Counts/*
+	rm /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/BAMS/*
+	rm /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/RemappedBAMS/*
+
+%_ExpressionMatrix.txt : /nfs/users/nfs_t/ta6/RNASeqPipeline/6_Get_Expression_featureCounts.pl
+	bsub -R"select[mem>10000] rusage[mem=10000]" -M10000 -o makeMat.out perl /nfs/users/nfs_t/ta6/RNASeqPipeline/6_Get_Expression_featureCounts.pl /lustre/scratch117/cellgen/team218/TA/LiverOrganoids/Counts $@
+
+
