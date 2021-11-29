@@ -1,0 +1,3 @@
+HCC10earlyorganoid	SLX-13156.A007.HHMJHBBXX.Cut.QCed.Merged.bam.PD.bam.RG.bam.REASSIGNED.bam.GATKrealign.bam
+HCC10late_organoid	SLX-13156.A012.HHMJHBBXX.Cut.QCed.Merged.bam.PD.bam.RG.bam.REASSIGNED.bam.GATKrealign.bam
+HCC10_TISSUE	SLX-13156.A016.HHMJHBBXX.Cut.QCed.Merged.bam.PD.bam.RG.bam.REASSIGNED.bam.GATKrealign.bam

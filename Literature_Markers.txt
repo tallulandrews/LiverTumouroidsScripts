@@ -1,0 +1,49 @@
+#	"Sampaziotis (2015) Cholangiocytes derived from human induced pluripotent stem cells for disease modeling and drug validation. text & Supplementary Figure 6"
+AFP	hepatoblast
+HNF4A	hepatoblast
+HNF1B	hepatoblast
+TBX3	hepatoblast
+CK19	hepatoblast
+KRT19	hepatoblast
+KRT8	hepatoblast
+CYP1B1	hepatoblast
+APOC1	hepatoblast
+ITIH4	hepatoblast
+CYP27A1	hepatoblast
+HNF4A	hepatoblast
+EPCAM	hepatoblast
+HPX	hepatoblast
+SERPINC1	hepatoblast
+TBX3	hepatoblast
+HNF1B	cholangiocyte progenitors
+CK19	cholangiocyte progenitors
+JAG1	cholangiocyte progenitors
+NOTCH1	cholangiocyte progenitors
+HES1	cholangiocyte progenitors
+PPARG	cholangiocyte progenitors
+HEY1	cholangiocyte progenitors
+HES2	cholangiocyte progenitors
+SCR	mature cholangiocyte
+SCTR	mature cholangiocyte
+AQP1	mature cholangiocyte
+AE2	mature cholangiocyte
+SLC4A2	mature cholangiocyte
+ONECUT2	mature cholangiocyte
+SLC12A2	mature cholangiocyte
+SLC4A4	mature cholangiocyte
+KRT7	mature cholangiocyte
+OSTALPHA	mature cholangiocyte
+SLC9A2	mature cholangiocyte
+CK18	cholangiocyte
+KRT18	cholangiocyte
+HNF1B	cholangiocyte
+GGT1	cholangiocyte
+NOTCH2	cholangiocyte
+CFTR	cholangiocyte
+ABCB9	cholangiocyte
+SOX9	cholangiocyte
+SSTR2	cholangiocyte
+SLC4A5	cholangiocyte
+ALP	cholangiocyte
+ALB	hepatocyte
+BSEP	hepatocyte

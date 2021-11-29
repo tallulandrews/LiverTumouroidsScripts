@@ -1,0 +1,262 @@
+,,,
+B27Component,Gene,Role,Source
+Biotin,SLC5A6,import biotin,Reactome
+Biotin,HCLS,adds biotin to catalyses,Reactome
+Biotin,PCCA,is biotinylated,Reactome
+Biotin,PCCB,is biotinylated,Reactome
+Biotin,PC,is biotinylated,Reactome
+Biotin,MCCC1,is biotinylated,Reactome
+Biotin,MCCC2,is biotinylated,Reactome
+Biotin,ACACA,is biotinylated,Reactome
+Biotin,ACACB,is biotinylated,Reactome
+Biotin,BTD,removes biotin from proteins,Reactome
+Alpha Tocopherol Acetate,SCARB1,import/absoprtion,KEGG
+Alpha Tocopherol Acetate,APOA1,transport,KEGG
+Alpha Tocopherol Acetate,APOA4,transport,KEGG
+Alpha Tocopherol Acetate,APOB,transport,KEGG
+Alpha Tocopherol Acetate,ALOX15,inhibited by,KEGG
+Alpha Tocopherol Acetate,TTPA,excrete by liver,Reactome
+Alpha Tocopherol Acetate,PXR,receptor of,PMID: 12504802
+Catalase,CAT,gene/complex,Reactome
+Catalase,SOD1,peroxisome antioxidant,KEGG
+Catalase,SOD2,peroxisome antioxidant,KEGG
+Catalase,NOS2,peroxisome antioxidant,KEGG
+Catalase,PRDX1,peroxisome antioxidant,KEGG
+Catalase,PRDX2,peroxisome antioxidant,KEGG
+Catalase,PXMP2,peroxisome ROS,KEGG
+Catalase,MPV17L,peroxisome ROS,KEGG
+Catalase,MPV17L,peroxisome ROS,KEGG
+Catalase,MPV17L2,peroxisome ROS,KEGG
+Catalase,FOXO6,upstream signalling,KEGG
+Catalase,FOXO1,upstream signalling,KEGG
+Catalase,FOXO3,upstream signalling,KEGG
+Catalase,FOXO4,upstream signalling,KEGG
+Insulin,INSR,receptor of,Reactome
+Insulin,SHC1,binds receptor,Reactome
+Insulin,IRS1,target of receptor,Reactome
+Insulin,IRS2,target of receptor,Reactome
+Insulin,GRB2,downstream target,Reactome
+Insulin,SOS1,downstream target,Reactome
+Insulin,KRAS,downstream target,Reactome
+Insulin,NRAS,downstream target,Reactome
+Insulin,HRAS,downstream target,Reactome
+Insulin,PI3KCD,downstream target,KEGG
+Insulin,PI3KR1,downstream target,KEGG
+Insulin,BRAF,downstream target,KEGG
+Insulin,RAF1,downstream target,KEGG
+Insulin,ARAF,downstream target,KEGG
+Insulin,MAP2K1,downstream target,KEGG
+Insulin,MAP2K2,downstream target,KEGG
+Insulin,ERK,downstream target,KEGG
+Insulin,ELK1,downstream target,KEGG
+Human Transferrin,TF,gene,KEGG
+Human Transferrin,TFRC,receptor of,KEGG
+Human Transferrin,HFE,inhibits TFRC,Reactome
+Human Transferrin,TFR2,receptor of,Reactome
+Human Transferrin,CD81,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,SNX4,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,SNX1,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,SNX2,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,RGMA,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,HJV,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,RGMA,binds receptor,Msigdb (GO: transferrin receptor binding)
+Human Transferrin,B2M,receptor complex,Msigdb (GO: HFE transferrin receptor complex)
+Human Transferrin,BMPR1A,receptor complex,Msigdb (GO: HFE transferrin receptor complex)
+Human Transferrin,BMPR1B,receptor complex,Msigdb (GO: HFE transferrin receptor complex)
+Superoxide Dismutase,SOD1,gene,HMDB (human metabolomic database)
+Superoxide Dismutase,CCS,binds gene,Reactome
+Superoxide Dismutase,NOX2,generates superoxides,Reactome
+Superoxide Dismutase,NOX5,generates superoxides,Reactome
+Superoxide Dismutase,NOX4,generates superoxides,Reactome
+Superoxide Dismutase,CYBA,generates superoxides,Reactome
+Superoxide Dismutase,CYBB,generates superoxides,Reactome
+Superoxide Dismutase,PRDX1,reduces peroxide,Reactome
+Superoxide Dismutase,PRDX2,reduces peroxide,Reactome
+Superoxide Dismutase,PRDX5,reduces peroxide,Reactome
+Superoxide Dismutase,TXN,reduces peroxide,Reactome
+Corticosterone,NR3C2,receptor,HMDB (human metabolomic database)
+Corticosterone,CYP11B1,biosynthesis,KEGG
+Corticosterone,CYP11B2,biosynthesis,KEGG
+Corticosterone,CYP21A,biosynthesis,KEGG
+Corticosterone,CYP17A,biosynthesis,KEGG
+Corticosterone,HSD3B,biosynthesis,KEGG
+Corticosterone,CYP11A,biosynthesis,KEGG
+Corticosterone,CDKN1A,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,CRH,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,AANAT,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,FOXO3,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,FOS,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,FOSB,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,NPAS4,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,HSD3B1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,HSD3B2,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,MAOB,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,NEFL,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,ATP2B1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,NTRK3,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,PEBP1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,AVPR1A,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,CCND1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,STAR,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,TH,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,TRH,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,CALM1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,FOSL1,response,Msigdb (GO: Response to corticosterone)
+Corticosterone,CALM3,response,Msigdb (GO: Response to corticosterone)
+D-Galactose,SLC5A1,transport,KEGG
+D-Galactose,SLC2A2,transport,KEGG
+D-Galactose,GALK1,catabolism,Reactome
+D-Galactose,GALT,catabolism,Reactome
+D-Galactose,PGM2,catabolism,Reactome
+D-Galactose,GALE,catabolism,Reactome
+D-Galactose,PGM2L1,catabolism,Reactome
+Ethanolamine,ETNK,phosphorylate,KEGG
+Ethanolamine,CNK,phosphorylate,KEGG
+Ethanolamine,PIGN,downstream GPI synth,Reactome
+Ethanolamine,PIGV,downstream GPI synth,Reactome
+Ethanolamine,PIGF,downstream GPI synth,Reactome
+Ethanolamine,PIGO,downstream GPI synth,Reactome
+Ethanolamine,PIGZ,downstream GPI synth,Reactome
+Ethanolamine,GPAA1,downstream GPI synth,Reactome
+Ethanolamine,PIGK,downstream GPI synth,Reactome
+Ethanolamine,PIGS,downstream GPI synth,Reactome
+Ethanolamine,PIGT,downstream GPI synth,Reactome
+Ethanolamine,PIGU,downstream GPI synth,Reactome
+Ethanolamine,PGAP1,downstream GPI synth,Reactome
+Ethanolamine,PLAUR,downstream GPI synth,Reactome
+L-Carnitine,SLC22A7,transport,KEGG
+L-Carnitine,SLC22A8,transport,KEGG
+L-Carnitine,CPT2,mitometabolism,KEGG
+L-Carnitine,SLC25A20,mitometabolism,KEGG
+L-Carnitine,CPT1A,mitometabolism,KEGG
+L-Carnitine,CPT1B,mitometabolism,KEGG
+L-Carnitine,CPT1C,mitometabolism,KEGG
+L-Carnitine,ALDH9A1,biosythesis,Msigdb (GO_Carnitine_biosynthetic_process)
+L-Carnitine,ACADM,biosythesis,Msigdb (GO_Carnitine_biosynthetic_process)
+L-Carnitine,TMLHE,biosythesis,Msigdb (GO_Carnitine_biosynthetic_process)
+L-Carnitine,SHMT1,biosythesis,Msigdb (GO_Carnitine_biosynthetic_process)
+L-Carnitine,BBOX1,biosythesis,Msigdb (GO_Carnitine_biosynthetic_process)
+Linoleic Acid,PPOA,metabolism,KEGG
+Linoleic Acid,LDS,metabolism,KEGG
+Linoleic Acid,LOX1,metabolism,KEGG
+Linoleic Acid,LOX2S,metabolism,KEGG
+Linoleic Acid,ALOX15,metabolism,KEGG
+Linoleic Acid,CYP1A2,metabolism,KEGG
+Linoleic Acid,CYP2C,metabolism,KEGG
+Linoleic Acid,CYP2C8,metabolism,KEGG
+Linoleic Acid,CYP2C9,metabolism,KEGG
+Linoleic Acid,CYP2C19,metabolism,KEGG
+Linoleic Acid,CYP2J,metabolism,KEGG
+Linoleic Acid,CYP3A4,metabolism,KEGG
+Linoleic Acid,CYP3A,metabolism,KEGG
+Linoleic Acid,CYP1A2,metabolism,KEGG
+Linoleic Acid,CYP2E1,metabolism,KEGG
+Linoleic Acid,PLA2G,synthesis,KEGG
+Linoleic Acid,PLA2G4,synthesis,KEGG
+Linoleic Acid,PLA2G6,synthesis,KEGG
+Linoleic Acid,PLB1,synthesis,KEGG
+Linoleic Acid,TGL4,synthesis,KEGG
+Linoleic Acid,PLA2G16,synthesis,KEGG
+Linoleic Acid,ACOT1,synthesis,KEGG
+Linoleic Acid,ACOT7,synthesis,KEGG
+Linoleic Acid,ACSL1,downstream metabolism,Reactome
+Linoleic Acid,FADS2,downstream metabolism,Reactome
+Linoleic Acid,ELOVL1,downstream metabolism,Reactome
+Linoleic Acid,ELOVL3,downstream metabolism,Reactome
+Linoleic Acid,ELOVL2,downstream metabolism,Reactome
+Linoleic Acid,ELOVL5,downstream metabolism,Reactome
+Linoleic Acid,FADS1,downstream metabolism,Reactome
+Linoleic Acid,ABCD1,downstream metabolism,Reactome
+Progesterone,FKBP4,complex,Reactome
+Progesterone,HSP90AA1,complex,Reactome
+Progesterone,HSP90AB1,complex,Reactome
+Progesterone,PTGES3,complex,Reactome
+Progesterone,ESR1,complex,Reactome
+Progesterone,PGR,receptor,Reactome
+Progesterone,GATA3,complex,Reactome
+Progesterone,NRIP1,complex,Reactome
+Progesterone,FOXA1,complex,Reactome
+Progesterone,TLE3,complex,Reactome
+Progesterone,EP300,complex,Reactome
+Progesterone,CYP17A,cortisol synthesis,KEGG
+Progesterone,CYP21A,cortisol synthesis,KEGG
+Progesterone,NCOA1,receptor complex,KEGG
+Progesterone,NCOA3,receptor complex,KEGG
+Progesterone,WNT1,downstream signalling,KEGG
+Progesterone,WNT4,downstream signalling,KEGG
+Progesterone,TNFSF11,downstream signalling,KEGG
+Progesterone,FAT4,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,PNMA8A,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,SLC47A1,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,KIAA1109,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,C4orf3,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,NDUFA6,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,PEX11A,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,SERPINB1,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,SLC24A3,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Progesterone,SNRPD3,upregulated,Msigdb (CLAUS_PGR_POSITIVE_MENINGIOMA_UP)
+Putrescine ,SRM,downstream metabolism,KEGG
+Putrescine ,TRYS,downstream metabolism,KEGG
+Putrescine ,TDPX,downstream metabolism,KEGG
+Putrescine ,TRYP,downstream metabolism,KEGG
+Putrescine ,MTRYP,downstream metabolism,KEGG
+Putrescine ,RRM1,downstream metabolism,KEGG
+Putrescine ,RRM2,downstream metabolism,KEGG
+Putrescine ,SMS,downstream metabolism,KEGG
+Putrescine ,SAT1,downstream metabolism,Reactome
+Putrescine ,PAOX,downstream metabolism,Reactome
+Putrescine ,AZIN2,biosynthesis,Msigdb (GO_PUTRESCINE_BIOSYNTHETIC_PROCESS)
+Putrescine ,ODC1,biosynthesis,Msigdb (GO_PUTRESCINE_BIOSYNTHETIC_PROCESS)
+Putrescine ,AZIN1,biosynthesis,Msigdb (GO_PUTRESCINE_BIOSYNTHETIC_PROCESS)
+Putrescine ,AGMAT,biosynthesis,Msigdb (GO_PUTRESCINE_BIOSYNTHETIC_PROCESS)
+T3 (triodo-I-thyronine),SULT1C2,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT1B1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT1A3,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT1A1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT2A1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT6B1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),SULT4A1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),BPNT1,downstream metabolism,Reactome
+T3 (triodo-I-thyronine),DIO1,reactions,Reactome
+T3 (triodo-I-thyronine),DIO2,reactions,Reactome
+T3 (triodo-I-thyronine),DIO3,reactions,Reactome
+T3 (triodo-I-thyronine),TPO,reactions,Reactome
+T3 (triodo-I-thyronine),CRYM,bound to?,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),CTSH,bound to?,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),ALDH1A3,bound to?,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),PKM,bound to?,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),THRA,receptor,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),THRB,receptor,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),TTR,bound to?,Msigdb (GO_THYROID_HORMONE_BINDING)
+T3 (triodo-I-thyronine),PPARA,Cross-talk,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433956/
+T3 (triodo-I-thyronine),PPARG,Cross-talk,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433956/
+T3 (triodo-I-thyronine),PIK3R1,Cross-talk,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433956/
+T3 (triodo-I-thyronine),PIAS1,sumoylation,Reactome
+T3 (triodo-I-thyronine),NCOR1,binds receptor,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433956/
+T3 (triodo-I-thyronine),NCOR2,binds receptor,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3433956/
+T3 (triodo-I-thyronine),GAS2L1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),PPARGC1A,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),CTSB,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),CTSL,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),CTSS,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),F7,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),AKR1B1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),GATA1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),GBA,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),GHSR,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),GCLC,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),GCLM,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),ANXA2,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),ANXA5,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),HPN,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),SLC26A5,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),KIT,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),LMO2,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),CRLS1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),MED1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),RDX,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),SIX1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),SLC34A1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),KLF9,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),TYRP1,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
+T3 (triodo-I-thyronine),TOMM20,response,Msigdb (GO_RESPONSE_TO_THYROID_HORMONE)
