@@ -7,5 +7,5 @@ This repository holds custom scripts and piplines used to analyze the scRNAseq d
 This scripts are not a package, rather a bunch of in-house scripts and data-files for a one-off custom analysis. To obtain a copy you can download individual scripts or clone the whole reposity.
 
 ## License
-This code is released under GLPv3 public license, by the author: Dr. Tallulah Suzanne Andrews
+This code is released under GPL-3 public license, by the author: Dr. Tallulah Suzanne Andrews
 
